@@ -1,4 +1,8 @@
-package it.a2w.automator.automation
+import it.a2w.automator.automation.NodeUtils.click
+import it.a2w.automator.automation.NodeUtils.findByAnyText
+import it.a2w.automator.automation.NodeUtils.findEditable
+import it.a2w.automator.automation.NodeUtils.findEditableNearLabel
+import it.a2w.automator.automation.NodeUtils.setText
 
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.GestureDescription
