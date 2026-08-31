@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">A2W Automator</string>
+    <string name="accessibility_description">Automazione guidata per elaborare asset da file Excel/CSV dentro A2W.</string>
+</resources>

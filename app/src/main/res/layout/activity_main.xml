@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="A2W Automator"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Importa Excel/CSV, poi automatizza ricerca → modifica → salva → asset successivo."
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btnPickFile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="1. Scegli Excel / CSV" />
+
+        <TextView
+            android:id="@+id/txtFileInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Nessun file caricato" />
+
+        <EditText
+            android:id="@+id/edtPackage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:hint="Package A2W (es. com....)"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/edtAssetColumn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome colonna asset"
+            android:text="ASSET" />
+
+        <EditText
+            android:id="@+id/edtFieldLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Etichetta campo da modificare in A2W"
+            android:text="Descrizione" />
+
+        <EditText
+            android:id="@+id/edtValueColumn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome colonna nuovo valore"
+            android:text="VALORE DA ASSUMERE" />
+
+        <EditText
+            android:id="@+id/edtSearchTokens"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Testi ricerca, separati da virgola"
+            android:text="Cerca,Ricerca" />
+
+        <EditText
+            android:id="@+id/edtEditTokens"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Testi pulsante modifica"
+            android:text="Modifica,Edit" />
+
+        <EditText
+            android:id="@+id/edtSaveTokens"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Testi pulsante salva"
+            android:text="Salva,Conferma" />
+
+        <Button
+            android:id="@+id/btnAccessibility"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="2. Abilita servizio Accessibilità" />
+
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3. Avvia automazione" />
+
+        <Button
+            android:id="@+id/btnStop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="STOP" />
+
+        <TextView
+            android:id="@+id/txtStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Stato: fermo"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="monospace"
+            android:text="Log..." />
+
+    </LinearLayout>
+</ScrollView>
