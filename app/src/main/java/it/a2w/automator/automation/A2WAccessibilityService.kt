@@ -11,7 +11,6 @@ import android.os.Handler
 import android.os.Looper
 import android.view.accessibility.AccessibilityEvent
 import it.a2w.automator.data.AutomationStore
-import it.a2w.automator.automation.NodeUtils.*
 
 class A2WAccessibilityService : AccessibilityService() {
     private enum class Step { HOME, MENU, ASSET_MENU, SEARCH, SUBMIT_SEARCH, OPEN_RESULT, EDIT_INFO, EDIT_FORM, FILL_DESCRIPTION, SAVE, VERIFY, NEXT_HOME }
