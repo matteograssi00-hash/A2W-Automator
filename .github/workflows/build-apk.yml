@@ -1,4 +1,4 @@
-name: Build A2W APK
+name: Build A2W Signed APK
 
 on:
   workflow_dispatch:
@@ -25,16 +25,45 @@ jobs:
         with:
           gradle-version: '8.7'
 
-      - name: Compila APK
-        run: gradle assembleDebug
-
-      - name: Controlla APK
+      - name: Crea keystore
         run: |
-          $ANDROID_HOME/build-tools/35.0.0/apksigner verify --verbose --print-certs app/build/outputs/apk/debug/app-debug.apk
-          $ANDROID_HOME/build-tools/35.0.0/aapt dump badging app/build/outputs/apk/debug/app-debug.apk
+          keytool -genkeypair \
+            -v \
+            -keystore a2w-release.jks \
+            -storepass a2wautomator \
+            -keypass a2wautomator \
+            -alias a2w \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -dname "CN=A2W Automator, OU=A2W, O=A2W, L=Gorizia, ST=Friuli Venezia Giulia, C=IT"
+
+      - name: Compila Release
+        run: gradle assembleRelease
+
+      - name: Firma APK
+        run: |
+          $ANDROID_HOME/build-tools/35.0.0/apksigner sign \
+            --ks a2w-release.jks \
+            --ks-key-alias a2w \
+            --ks-pass pass:a2wautomator \
+            --key-pass pass:a2wautomator \
+            --out A2W-Automator.apk \
+            app/build/outputs/apk/release/app-release-unsigned.apk
+
+      - name: Verifica firma APK
+        run: |
+          $ANDROID_HOME/build-tools/35.0.0/apksigner verify \
+            --verbose \
+            --print-certs \
+            A2W-Automator.apk
+
+      - name: Informazioni APK
+        run: |
+          $ANDROID_HOME/build-tools/35.0.0/aapt dump badging A2W-Automator.apk
 
       - name: Carica APK
         uses: actions/upload-artifact@v4
         with:
-          name: A2W-Automator-APK
-          path: app/build/outputs/apk/debug/app-debug.apk
+          name: A2W-Automator-SIGNED
+          path: A2W-Automator.apk
